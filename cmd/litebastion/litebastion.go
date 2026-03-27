@@ -179,7 +179,7 @@ func main() {
 		}
 		hs := &http.Server{
 			Addr:         *listenHTTP,
-			Handler:      http.MaxBytesHandler(mux, 10*1024),
+			Handler:      http.MaxBytesHandler(mux, 10*1024*1024),
 			ReadTimeout:  5 * time.Second,
 			WriteTimeout: 5 * time.Second,
 		}
@@ -218,7 +218,7 @@ func main() {
 
 	hs := &http.Server{
 		Addr:         *listenAddr,
-		Handler:      http.MaxBytesHandler(mux, 10*1024),
+		Handler:      http.MaxBytesHandler(mux, 10*1024*1024),
 		ReadTimeout:  5 * time.Second,
 		WriteTimeout: 5 * time.Second,
 		TLSConfig: &tls.Config{
